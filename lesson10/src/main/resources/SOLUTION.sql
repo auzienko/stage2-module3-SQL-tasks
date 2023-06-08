@@ -1,0 +1,2 @@
+SELECT * FROM subject s WHERE s.id IN (SELECT mr.subject_id FROM mark mr GROUP BY mr.subject_id HAVING AVG(mr.mark) > (SELECT AVG(m.mark) FROM mark m));
+SELECT * FROM student s WHERE s.id IN (SELECT pm.student_id FROM payment pm GROUP BY pm.student_id HAVING AVG(pm.amount) < (SELECT AVG(p.amount) FROM payment p));
